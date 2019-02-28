@@ -15,10 +15,6 @@ namespace PHPSTORM_META {
 //    expectedArguments(\Symfony\Component\Routing\Generator\UrlGeneratorInterface::generate(), 2, argumentsSet('symfony_url_reference_types'));
 //    expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::generateUrl(), 2, argumentsSet('symfony_url_reference_types'));
 
-    expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 2, 'localhost');
-    expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 3, 'http', 'https');
-    expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 4, 80, 8080, 8081, 8090, 8008, 3128);
-    expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 5, 443);
 
     registerArgumentsSet('symfony_router_options',
         'cache_dir',
@@ -37,4 +33,25 @@ namespace PHPSTORM_META {
 
     expectedArguments(\Symfony\Component\Routing\Router::setOption(), 0, argumentsSet('symfony_router_options'));
     expectedArguments(\Symfony\Component\Routing\Router::getOption(), 0, argumentsSet('symfony_router_options'));
+
+	registerArgumentsSet('symfony_route_options',
+		'utf8',
+		'compiler_class'
+	);
+	expectedArguments(\Symfony\Component\Routing\Route::setOption(), 0, argumentsSet('symfony_route_options'));
+	expectedArguments(\Symfony\Component\Routing\Route::getOption(), 0, argumentsSet('symfony_route_options'));
+	expectedArguments(\Symfony\Component\Routing\Route::hasOption(), 0, argumentsSet('symfony_route_options'));
+	expectedArguments(\Symfony\Component\Routing\RouteCollectionBuilder::setOption(), 0, argumentsSet('symfony_route_options'));
+
+	registerArgumentsSet('symfony_route_loader_types',
+		'annotation',
+		'closure',
+		'directory',
+		'glob',
+		'service',
+		'php',
+		'xml',
+		'yaml'
+	);
+	expectedArguments(\Symfony\Component\Routing\RouteCollectionBuilder::import(), 2, argumentsSet('symfony_route_loader_types'));
 }

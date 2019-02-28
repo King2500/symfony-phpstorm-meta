@@ -20,10 +20,14 @@ namespace PHPSTORM_META {
     expectedArguments(\Symfony\Component\HttpFoundation\Request::isMethodSafe(), 0, argumentsSet('symfony_request_methods'));
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getMethod(), argumentsSet('symfony_request_methods'));
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getRealMethod(), argumentsSet('symfony_request_methods'));
+	expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchMethod(), 0, argumentsSet('symfony_request_methods'));
 
     expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 1, argumentsSet('symfony_request_methods'));
     expectedArguments(\Symfony\Component\Routing\RequestContext::setMethod(), 0, argumentsSet('symfony_request_methods'));
     expectedReturnValues(\Symfony\Component\Routing\RequestContext::getMethod(), argumentsSet('symfony_request_methods'));
+
+	expectedArguments(\Symfony\Component\BrowserKit\Client::request(), 0, argumentsSet('symfony_request_methods'));
+	expectedArguments(\Symfony\Component\DomCrawler\Crawler::link(), 0, argumentsSet('symfony_request_methods'));
 
     registerArgumentsSet('symfony_request_trusted_header_set',
         \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED |
@@ -64,19 +68,43 @@ namespace PHPSTORM_META {
     expectedArguments(\Symfony\Component\HttpFoundation\Request::getFormat(), 0, argumentsSet('symfony_request_mimes'));
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getMimeType(), argumentsSet('symfony_request_mimes'));
 
-    expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getScheme(), 'https', 'http');
-    expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getPort(), 80, 443, 8080, 8081, 8090, 8008, 3128);
-    expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getHost(), 'localhost');
-    expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getHttpHost(), 'localhost');
+    registerArgumentsSet('symfony_http_protocols', 'https', 'http');
+	expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getScheme(), argumentsSets('symfony_http_protocols'));
+	expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchScheme(), 0, argumentsSets('symfony_http_protocols'));
+	expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 3, argumentsSets('symfony_http_protocols'));
+	expectedArguments(\Symfony\Component\Routing\RequestContext::setScheme(), 0, argumentsSet('symfony_http_protocols'));
+	expectedReturnValues(\Symfony\Component\Routing\RequestContext::getScheme(), argumentsSet('symfony_http_protocols'));
+	expectedArguments(\Symfony\Component\Routing\Route::hasScheme(), 0, argumentsSet('symfony_http_protocols'));
+	expectedArguments(\Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher::redirect(), 2, argumentsSet('symfony_http_protocols'));
+
+    registerArgumentsSet('symfony_ports_http_https', 80, 443, 8080, 8081, 8090, 8008, 3128);
+	expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getPort(), argumentsSets('symfony_ports_http_https'));
+
+	registerArgumentsSet('symfony_ports_http', 80, 8080, 8081, 8090, 8008, 3128);
+	expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 4, argumentsSet('symfony_ports_http'));
+	expectedArguments(\Symfony\Component\Routing\RequestContext::setHttpPort(), 0, argumentsSet('symfony_ports_http'));
+	expectedReturnValues(\Symfony\Component\Routing\RequestContext::getHttpPort(), argumentsSet('symfony_ports_http'));
+
+	registerArgumentsSet('symfony_ports_https', 443);
+	expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 5, argumentsSet('symfony_ports_https'));
+	expectedArguments(\Symfony\Component\Routing\RequestContext::setHttpsPort(), 0, argumentsSet('symfony_ports_https'));
+	expectedReturnValues(\Symfony\Component\Routing\RequestContext::getHttpsPort(), argumentsSet('symfony_ports_https'));
+
+    registerArgumentsSet('symfony_common_hostnames', 'localhost');
+    expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getHost(), argumentsSet('symfony_common_hostnames'));
+    expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getHttpHost(), argumentsSet('symfony_common_hostnames'));
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getSchemeAndHttpHost(), 'http://localhost', 'https://localhost');
+    expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchHost(), 0, argumentsSet('symfony_common_hostnames'));
 
-    expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchScheme(), 0, 'https', 'http');
-    expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchHost(), 0, 'localhost');
+	expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 2, argumentsSet('symfony_common_hostnames'));
+	expectedArguments(\Symfony\Component\Routing\RequestContext::setHost(), 0, argumentsSet('symfony_common_hostnames'));
+	expectedReturnValues(\Symfony\Component\Routing\RequestContext::getHost(), argumentsSet('symfony_common_hostnames'));
+	expectedArguments(\Symfony\Component\Routing\Route::__construct(), 4, argumentsSet('symfony_common_hostnames'));
+	expectedArguments(\Symfony\Component\Routing\Route::setHost(), 0, argumentsSet('symfony_common_hostnames'));
+	expectedReturnValues(\Symfony\Component\Routing\Route::getHost(), argumentsSet('symfony_common_hostnames'));
+	expectedArguments(\Symfony\Component\Routing\RouteCollection::setHost(), 0, argumentsSet('symfony_common_hostnames'));
+
     expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchIp(), 0, '127.0.0.1', '192.168.');
-    expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchMethod(), 0, argumentsSet('symfony_request_methods'));
-
-    expectedArguments(\Symfony\Component\BrowserKit\Client::request(), 0, argumentsSet('symfony_request_methods'));
-    expectedArguments(\Symfony\Component\DomCrawler\Crawler::link(), 0, argumentsSet('symfony_request_methods'));
 
     registerArgumentsSet('symfony_response_codes',
         \Symfony\Component\HttpFoundation\Response::HTTP_OK,
@@ -142,12 +170,20 @@ namespace PHPSTORM_META {
         \Symfony\Component\HttpFoundation\Response::HTTP_NOT_EXTENDED,
         \Symfony\Component\HttpFoundation\Response::HTTP_NETWORK_AUTHENTICATION_REQUIRED
     );
+	registerArgumentsSet('symfony_response_codes_redirect',
+		\Symfony\Component\HttpFoundation\Response::HTTP_FOUND,
+		\Symfony\Component\HttpFoundation\Response::HTTP_MOVED_PERMANENTLY,
+		\Symfony\Component\HttpFoundation\Response::HTTP_SEE_OTHER,
+		\Symfony\Component\HttpFoundation\Response::HTTP_TEMPORARY_REDIRECT,
+		\Symfony\Component\HttpFoundation\Response::HTTP_PERMANENTLY_REDIRECT
+	);
 
     expectedArguments(\Symfony\Component\HttpFoundation\Response::__construct(), 1, argumentsSet('symfony_response_codes'));
     expectedArguments(\Symfony\Component\HttpFoundation\Response::create(), 1, argumentsSet('symfony_response_codes'));
     expectedArguments(\Symfony\Component\HttpFoundation\Response::setStatusCode(), 0, argumentsSet('symfony_response_codes'));
-    expectedArguments(\Symfony\Component\HttpFoundation\RedirectResponse::__construct(), 1, argumentsSet('symfony_response_codes'));
-    expectedArguments(\Symfony\Component\HttpFoundation\RedirectResponse::create(), 1, argumentsSet('symfony_response_codes'));
+	expectedReturnValues(\Symfony\Component\HttpFoundation\Response::getStatusCode(), argumentsSet('symfony_response_codes'));
+    expectedArguments(\Symfony\Component\HttpFoundation\RedirectResponse::__construct(), 1, argumentsSet('symfony_response_codes_redirect'));
+    expectedArguments(\Symfony\Component\HttpFoundation\RedirectResponse::create(), 1, argumentsSet('symfony_response_codes_redirect'));
     expectedArguments(\Symfony\Component\HttpFoundation\JsonResponse::__construct(), 1, argumentsSet('symfony_response_codes'));
     expectedArguments(\Symfony\Component\HttpFoundation\JsonResponse::create(), 1, argumentsSet('symfony_response_codes'));
     expectedArguments(\Symfony\Component\HttpFoundation\JsonResponse::fromJsonString(), 1, argumentsSet('symfony_response_codes'));
@@ -158,11 +194,11 @@ namespace PHPSTORM_META {
 
     expectedArguments(\Symfony\Component\HttpKernel\Exception\HttpException::__construct(), 0, argumentsSet('symfony_response_codes'));
 
-    expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::redirect(), 1, argumentsSet('symfony_response_codes'));
-    expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::redirectToRoute(), 2, argumentsSet('symfony_response_codes'));
+    expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::redirect(), 1, argumentsSet('symfony_response_codes_redirect'));
+    expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::redirectToRoute(), 2, argumentsSet('symfony_response_codes_redirect'));
     expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::json(), 1, argumentsSet('symfony_response_codes'));
 
-    expectedReturnValues(\Symfony\Component\HttpFoundation\Response::getStatusCode(), argumentsSet('symfony_response_codes'));
+    expectedArguments(\Symfony\Component\Security\Http\HttpUtils::createRedirectResponse(), 2, argumentsSet('symfony_response_codes_redirect'));
 
     expectedArguments(\header(), 2, argumentsSet('symfony_response_codes'));
 
