@@ -1,0 +1,14 @@
+{
+    "name": "thomas-schulz/symfony-meta",
+    "description": "PhpStorm meta data for expected arguments completion in symfony projects.",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Thomas Schulz",
+            "email": "mail@king2500.net"
+        }
+    ],
+    "require-dev": {
+        "symfony/symfony": "~4.2"
+    }
+}
