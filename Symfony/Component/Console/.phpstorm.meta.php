@@ -2,6 +2,15 @@
 
 namespace PHPSTORM_META {
 
+	override(\Symfony\Component\Console\Command\Command::getHelper(0),
+		map([
+			'formatter' => \Symfony\Component\Console\Helper\FormatterHelper::class,
+			'process' => \Symfony\Component\Console\Helper\ProcessHelper::class,
+			'question' => \Symfony\Component\Console\Helper\QuestionHelper::class,
+			'debug_formatter' => \Symfony\Component\Console\Helper\DebugFormatterHelper::class,
+		])
+	);
+
 	registerArgumentsSet('symfony_input_argument_modes',
 		\Symfony\Component\Console\Input\InputArgument::REQUIRED |
 		\Symfony\Component\Console\Input\InputArgument::OPTIONAL |
@@ -85,9 +94,9 @@ namespace PHPSTORM_META {
 		'question',
 		'debug_formatter'
 	);
-	expectedArguments(\Symfony\Component\Console\Command\Command::getHelper(), 0, argumentsSet('symfony_console_helpers'));
 	expectedArguments(\Symfony\Component\Console\Helper\HelperSet::has(), 0, argumentsSet('symfony_console_helpers'));
 	expectedArguments(\Symfony\Component\Console\Helper\HelperSet::get(), 0, argumentsSet('symfony_console_helpers'));
+//	expectedArguments(\Symfony\Component\Console\Command\Command::getHelper(), 0, argumentsSet('symfony_console_helpers'));
 
 	registerArgumentsSet('symfony_console_exitcodes',
 		\Symfony\Component\Console\Event\ConsoleCommandEvent::RETURN_CODE_DISABLED,
