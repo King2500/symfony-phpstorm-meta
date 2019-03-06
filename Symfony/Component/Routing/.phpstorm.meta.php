@@ -1,20 +1,18 @@
 <?php
 
 namespace PHPSTORM_META {
-// BUGGED !
-//    registerArgumentsSet('symfony_url_reference_types',
-//        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_PATH,
-//        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL,
-//        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::RELATIVE_PATH,
-//        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::NETWORK_PATH
-//    );
 
-//    expectedArguments(\Symfony\Component\Routing\Router::generate(), 2, argumentsSet('symfony_url_reference_types'));
-//    expectedArguments(\Symfony\Component\Routing\Generator\UrlGenerator::generate(), 2, argumentsSet('symfony_url_reference_types'));
-//    expectedArguments(\Symfony\Component\Routing\Generator\UrlGenerator::doGenerate(), 6, argumentsSet('symfony_url_reference_types'));
-//    expectedArguments(\Symfony\Component\Routing\Generator\UrlGeneratorInterface::generate(), 2, argumentsSet('symfony_url_reference_types'));
-//    expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::generateUrl(), 2, argumentsSet('symfony_url_reference_types'));
-
+    registerArgumentsSet('symfony_url_reference_types',
+        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_PATH,
+        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL,
+        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::RELATIVE_PATH,
+        \Symfony\Component\Routing\Generator\UrlGeneratorInterface::NETWORK_PATH
+    );
+    expectedArguments(\Symfony\Component\Routing\Router::generate(), 2, argumentsSet('symfony_url_reference_types'));
+    expectedArguments(\Symfony\Component\Routing\Generator\UrlGenerator::generate(), 2, argumentsSet('symfony_url_reference_types'));
+    expectedArguments(\Symfony\Component\Routing\Generator\UrlGenerator::doGenerate(), 6, argumentsSet('symfony_url_reference_types'));
+    expectedArguments(\Symfony\Component\Routing\Generator\UrlGeneratorInterface::generate(), 2, argumentsSet('symfony_url_reference_types'));
+    expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::generateUrl(), 2, argumentsSet('symfony_url_reference_types'));
 
     registerArgumentsSet('symfony_router_options',
         'cache_dir',
@@ -30,7 +28,6 @@ namespace PHPSTORM_META {
         'resource_type',
         'strict_requirements'
     );
-
     expectedArguments(\Symfony\Component\Routing\Router::setOption(), 0, argumentsSet('symfony_router_options'));
     expectedArguments(\Symfony\Component\Routing\Router::getOption(), 0, argumentsSet('symfony_router_options'));
 
