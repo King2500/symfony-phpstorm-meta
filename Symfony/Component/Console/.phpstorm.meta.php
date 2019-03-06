@@ -28,6 +28,30 @@ namespace PHPSTORM_META {
 	expectedArguments(\Symfony\Component\Console\Command\Command::addOption(), 2, argumentsSet('symfony_input_option_modes'));
 	expectedArguments(\Symfony\Component\Console\Input\InputOption::__construct(), 2, argumentsSet('symfony_input_option_modes'));
 
+	registerArgumentsSet('symfony_output_verbosity_levels',
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_NORMAL,
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_QUIET,
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERBOSE,
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERY_VERBOSE,
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_DEBUG
+	);
+	expectedArguments(\Symfony\Component\Console\Helper\ProcessHelper::run(), 4, argumentsSet('symfony_output_verbosity_levels'));
+	expectedArguments(\Symfony\Component\Console\Output\OutputInterface::setVerbosity(), 0, argumentsSet('symfony_output_verbosity_levels'));
+	expectedReturnValues(\Symfony\Component\Console\Output\OutputInterface::getVerbosity(), argumentsSet('symfony_output_verbosity_levels'));
+
+	registerArgumentsSet('symfony_output_options',
+		\Symfony\Component\Console\Output\OutputInterface::OUTPUT_NORMAL |
+		\Symfony\Component\Console\Output\OutputInterface::OUTPUT_RAW |
+		\Symfony\Component\Console\Output\OutputInterface::OUTPUT_PLAIN |
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_NORMAL |
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_QUIET |
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERBOSE |
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_VERY_VERBOSE |
+		\Symfony\Component\Console\Output\OutputInterface::VERBOSITY_DEBUG
+	);
+	expectedArguments(\Symfony\Component\Console\Output\OutputInterface::write(), 2, argumentsSet('symfony_output_options'));
+	expectedArguments(\Symfony\Component\Console\Output\OutputInterface::writeln(), 1, argumentsSet('symfony_output_options'));
+
 	// Suggest common command names
 	registerArgumentsSet('symfony_console_common_commands',
 		'list',
@@ -97,6 +121,71 @@ namespace PHPSTORM_META {
 	expectedArguments(\Symfony\Component\Console\Helper\HelperSet::has(), 0, argumentsSet('symfony_console_helpers'));
 	expectedArguments(\Symfony\Component\Console\Helper\HelperSet::get(), 0, argumentsSet('symfony_console_helpers'));
 //	expectedArguments(\Symfony\Component\Console\Command\Command::getHelper(), 0, argumentsSet('symfony_console_helpers'));
+
+	registerArgumentsSet('symfony_console_formatter_styles',
+		'info',
+		'comment',
+		'question',
+		'error'
+	);
+	expectedArguments(\Symfony\Component\Console\Helper\FormatterHelper::formatSection(), 2, argumentsSet('symfony_console_formatter_styles'));
+	expectedArguments(\Symfony\Component\Console\Helper\FormatterHelper::formatBlock(), 1, argumentsSet('symfony_console_formatter_styles'));
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterInterface::setStyle(), 0, argumentsSet('symfony_console_formatter_styles'));
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterInterface::hasStyle(), 0, argumentsSet('symfony_console_formatter_styles'));
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterInterface::getStyle(), 0, argumentsSet('symfony_console_formatter_styles'));
+
+	registerArgumentsSet('symfony_console_style_colors',
+		'default',
+		'black',
+		'red',
+		'green',
+		'yellow',
+		'blue',
+		'magenta',
+		'cyan',
+		'white'
+	);
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterStyle::__construct(), 0, argumentsSet('symfony_console_style_colors'));
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterStyle::__construct(), 1, argumentsSet('symfony_console_style_colors'));
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::setForeground(), 0, argumentsSet('symfony_console_style_colors'));
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::setBackground(), 0, argumentsSet('symfony_console_style_colors'));
+
+	registerArgumentsSet('symfony_console_style_options',
+		'bold',
+		'underscore',
+		'blink',
+		'reverse',
+		'conceal'
+	);
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::setOption(), 0, argumentsSet('symfony_console_style_options'));
+	expectedArguments(\Symfony\Component\Console\Formatter\OutputFormatterStyleInterface::unsetOption(), 0, argumentsSet('symfony_console_style_options'));
+
+	registerArgumentsSet('symfony_console_progress_formats',
+		'normal',
+		'verbose',
+		'very_verbose',
+		'debug',
+		'normal_nomax',
+		'verbose_nomax',
+		'very_verbose_nomax',
+		'debug_nomax'
+	);
+	expectedArguments(\Symfony\Component\Console\Helper\ProgressBar::setFormat(), 0, argumentsSet('symfony_console_progress_formats'));
+	expectedArguments(\Symfony\Component\Console\Helper\ProgressBar::setFormatDefinition(), 0, argumentsSet('symfony_console_progress_formats'));
+	expectedArguments(\Symfony\Component\Console\Helper\ProgressBar::getFormatDefinition(), 0, argumentsSet('symfony_console_progress_formats'));
+
+	registerArgumentsSet('symfony_console_progress_formatters',
+		'bar',
+		'elapsed',
+		'remaining',
+		'estimated',
+		'memory',
+		'current',
+		'max',
+		'percent'
+	);
+	expectedArguments(\Symfony\Component\Console\Helper\ProgressBar::setPlaceholderFormatterDefinition(), 0, argumentsSet('symfony_console_progress_formatters'));
+	expectedArguments(\Symfony\Component\Console\Helper\ProgressBar::getPlaceholderFormatterDefinition(), 0, argumentsSet('symfony_console_progress_formatters'));
 
 	registerArgumentsSet('symfony_console_exitcodes',
 		\Symfony\Component\Console\Event\ConsoleCommandEvent::RETURN_CODE_DISABLED,
