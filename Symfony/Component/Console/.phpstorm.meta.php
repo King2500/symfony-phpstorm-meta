@@ -187,6 +187,23 @@ namespace PHPSTORM_META {
 	expectedArguments(\Symfony\Component\Console\Helper\ProgressBar::setPlaceholderFormatterDefinition(), 0, argumentsSet('symfony_console_progress_formatters'));
 	expectedArguments(\Symfony\Component\Console\Helper\ProgressBar::getPlaceholderFormatterDefinition(), 0, argumentsSet('symfony_console_progress_formatters'));
 
+	registerArgumentsSet('symfony_console_table_styles',
+		'default',
+		'borderless',
+		'compact',
+		'symfony-style-guide',
+		'box',
+		'box-double'
+	);
+	expectedArguments(\Symfony\Component\Console\Helper\Table::setStyle(), 0, argumentsSet('symfony_console_table_styles'));
+	expectedArguments(\Symfony\Component\Console\Helper\Table::getStyleDefinition(), 0, argumentsSet('symfony_console_table_styles'));
+	expectedArguments(\Symfony\Component\Console\Helper\Table::setStyleDefinition(), 0, argumentsSet('symfony_console_table_styles'));
+	expectedArguments(\Symfony\Component\Console\Helper\Table::setColumnStyle(), 1, argumentsSet('symfony_console_table_styles'));
+	expectedArguments(\Symfony\Component\Console\Helper\Table::resolveStyle(), 0, argumentsSet('symfony_console_table_styles'));
+
+	expectedArguments(\Symfony\Component\Console\Helper\TableStyle::setPadType(), 0, STR_PAD_LEFT, STR_PAD_RIGHT, STR_PAD_BOTH);
+	expectedReturnValues(\Symfony\Component\Console\Helper\TableStyle::getPadType(), STR_PAD_LEFT, STR_PAD_RIGHT, STR_PAD_BOTH);
+
 	registerArgumentsSet('symfony_console_exitcodes',
 		\Symfony\Component\Console\Event\ConsoleCommandEvent::RETURN_CODE_DISABLED,
 	);
