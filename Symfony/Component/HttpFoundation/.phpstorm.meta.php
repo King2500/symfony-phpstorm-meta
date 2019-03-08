@@ -69,16 +69,16 @@ namespace PHPSTORM_META {
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getMimeType(), argumentsSet('symfony_request_mimes'));
 
     registerArgumentsSet('symfony_http_protocols', 'https', 'http');
-	expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getScheme(), argumentsSets('symfony_http_protocols'));
-	expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchScheme(), 0, argumentsSets('symfony_http_protocols'));
-	expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 3, argumentsSets('symfony_http_protocols'));
+	expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getScheme(), argumentsSet('symfony_http_protocols'));
+	expectedArguments(\Symfony\Component\HttpFoundation\RequestMatcher::matchScheme(), 0, argumentsSet('symfony_http_protocols'));
+	expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 3, argumentsSet('symfony_http_protocols'));
 	expectedArguments(\Symfony\Component\Routing\RequestContext::setScheme(), 0, argumentsSet('symfony_http_protocols'));
 	expectedReturnValues(\Symfony\Component\Routing\RequestContext::getScheme(), argumentsSet('symfony_http_protocols'));
 	expectedArguments(\Symfony\Component\Routing\Route::hasScheme(), 0, argumentsSet('symfony_http_protocols'));
 	expectedArguments(\Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher::redirect(), 2, argumentsSet('symfony_http_protocols'));
 
     registerArgumentsSet('symfony_ports_http_https', 80, 443, 8080, 8081, 8090, 8008, 3128);
-	expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getPort(), argumentsSets('symfony_ports_http_https'));
+	expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getPort(), argumentsSet('symfony_ports_http_https'));
 
 	registerArgumentsSet('symfony_ports_http', 80, 8080, 8081, 8090, 8008, 3128);
 	expectedArguments(\Symfony\Component\Routing\RequestContext::__construct(), 4, argumentsSet('symfony_ports_http'));
