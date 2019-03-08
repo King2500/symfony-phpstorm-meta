@@ -20,4 +20,11 @@ namespace PHPSTORM_META {
 	expectedReturnValues(\Symfony\Component\Security\Core\Authorization\Voter\ExpressionVoter::vote(), argumentsSet('symfony_security_voter_access'));
 	expectedReturnValues(\Symfony\Component\Security\Core\Authorization\Voter\RoleVoter::vote(), argumentsSet('symfony_security_voter_access'));
 	expectedReturnValues(\Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter::vote(), argumentsSet('symfony_security_voter_access'));
+
+	registerArgumentsSet('symfony_security_session_auth_strategies',
+		\Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy::NONE,
+		\Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy::MIGRATE,
+		\Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy::INVALIDATE
+	);
+	expectedArguments(\Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy::__construct(), 0, argumentsSet('symfony_security_session_auth_strategies'));
 }
