@@ -1,6 +1,7 @@
 {
     "name": "thomas-schulz/symfony-meta",
     "description": "PhpStorm meta data for expected arguments completion in symfony projects.",
+    "keywords": ["PhpStorm", "Symfony", "metadata", "autocomplete", "code"],
     "minimum-stability": "stable",
     "authors": [
         {
