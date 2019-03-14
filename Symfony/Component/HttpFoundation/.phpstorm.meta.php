@@ -201,6 +201,8 @@ namespace PHPSTORM_META {
     expectedArguments(\Symfony\Component\Security\Http\HttpUtils::createRedirectResponse(), 2, argumentsSet('symfony_response_codes_redirect'));
 
     expectedArguments(\header(), 2, argumentsSet('symfony_response_codes'));
+	expectedArguments(\http_response_code(), 0, argumentsSet('symfony_response_codes'));
+    expectedReturnValues(\http_response_code(), argumentsSet('symfony_response_codes'));
 
     registerArgumentsSet('symfony_response_disposition',
         \Symfony\Component\HttpFoundation\ResponseHeaderBag::DISPOSITION_ATTACHMENT,
