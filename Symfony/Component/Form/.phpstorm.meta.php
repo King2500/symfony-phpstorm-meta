@@ -2,6 +2,22 @@
 
 namespace PHPSTORM_META {
 
+	registerArgumentsSet('symfony_form_methods',
+		'GET', 'POST',
+		'PUT', 'PATCH', 'DELETE' // handled by _method override field, see https://symfony.com/doc/current/form/action_method.html
+	);
+	expectedArguments(\Symfony\Component\Form\FormConfigBuilderInterface::setMethod(), 0, argumentsSet('symfony_form_methods'));
+	expectedReturnValues(\Symfony\Component\Form\FormConfigBuilderInterface::getMethod(), argumentsSet('symfony_form_methods'));
+
+	registerArgumentsSet('symfony_form_events',
+		\Symfony\Component\Form\FormEvents::PRE_SUBMIT,
+		\Symfony\Component\Form\FormEvents::SUBMIT,
+		\Symfony\Component\Form\FormEvents::POST_SUBMIT,
+		\Symfony\Component\Form\FormEvents::PRE_SET_DATA,
+		\Symfony\Component\Form\FormEvents::POST_SET_DATA
+	);
+	expectedArguments(\Symfony\Component\Form\FormConfigBuilderInterface::addEventListener(), 0, argumentsSet('symfony_form_events'));
+
 	registerArgumentsSet('symfony_rounding_modes',
 		\Symfony\Component\Form\Extension\Core\DataTransformer\NumberToLocalizedStringTransformer::ROUND_CEILING,
 		\Symfony\Component\Form\Extension\Core\DataTransformer\NumberToLocalizedStringTransformer::ROUND_FLOOR,
