@@ -24,12 +24,21 @@ namespace PHPSTORM_META {
 		\Symfony\Component\Security\Http\SecurityEvents::INTERACTIVE_LOGIN,
 		\Symfony\Component\Security\Http\SecurityEvents::SWITCH_USER
 	);
+
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::dispatch(), 0, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::getListeners(), 0, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::getListenerPriority(), 0, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::hasListeners(), 0, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::addListener(), 0, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::removeListener(), 0, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::doDispatch(), 1, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::sortListeners(), 0, argumentsSet('symfony_events'));
+
+	// Required until this is fixed: https://youtrack.jetbrains.com/issue/WI-45824
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::dispatch(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::getListeners(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::getListenerPriority(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::hasListeners(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::addListener(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::removeListener(), 0, argumentsSet('symfony_events'));
-	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::doDispatch(), 1, argumentsSet('symfony_events'));
-	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::sortListeners(), 0, argumentsSet('symfony_events'));
 }
