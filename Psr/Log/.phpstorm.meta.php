@@ -13,6 +13,8 @@ namespace PHPSTORM_META {
 		\Psr\Log\LogLevel::EMERGENCY
 	);
 	expectedArguments(\Psr\Log\LoggerInterface::log(), 0, argumentsSet('psr_log_levels'));
+
+	// Required until this is fixed: https://youtrack.jetbrains.com/issue/WI-45824
 	expectedArguments(\Psr\Log\AbstractLogger::log(), 0, argumentsSet('psr_log_levels'));
 	expectedArguments(\Psr\Log\NullLogger::log(), 0, argumentsSet('psr_log_levels'));
 	expectedArguments(\Symfony\Component\Console\Logger\ConsoleLogger::log(), 0, argumentsSet('psr_log_levels'));
