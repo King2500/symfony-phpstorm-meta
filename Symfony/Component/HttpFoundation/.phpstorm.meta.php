@@ -12,7 +12,17 @@ namespace PHPSTORM_META {
         \Symfony\Component\HttpFoundation\Request::METHOD_PURGE,
         \Symfony\Component\HttpFoundation\Request::METHOD_OPTIONS,
         \Symfony\Component\HttpFoundation\Request::METHOD_TRACE,
-        \Symfony\Component\HttpFoundation\Request::METHOD_CONNECT
+        \Symfony\Component\HttpFoundation\Request::METHOD_CONNECT,
+		'GET',
+		'POST',
+		'HEAD',
+		'PUT',
+		'PATCH',
+		'DELETE',
+		'PURGE',
+		'OPTIONS',
+		'TRACE',
+		'CONNECT'
     );
     expectedArguments(\Symfony\Component\HttpFoundation\Request::create(), 1, argumentsSet('symfony_request_methods'));
     expectedArguments(\Symfony\Component\HttpFoundation\Request::setMethod(), 0, argumentsSet('symfony_request_methods'));
