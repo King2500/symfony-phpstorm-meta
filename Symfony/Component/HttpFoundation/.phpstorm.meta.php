@@ -27,7 +27,14 @@ namespace PHPSTORM_META {
     expectedReturnValues(\Symfony\Component\Routing\RequestContext::getMethod(), argumentsSet('symfony_request_methods'));
 
 	expectedArguments(\Symfony\Component\BrowserKit\Client::request(), 0, argumentsSet('symfony_request_methods'));
+	expectedArguments(\Symfony\Component\BrowserKit\Client::submitForm(), 2, argumentsSet('symfony_request_methods'));
+
 	expectedArguments(\Symfony\Component\DomCrawler\Crawler::link(), 0, argumentsSet('symfony_request_methods'));
+	expectedArguments(\Symfony\Component\DomCrawler\Crawler::form(), 1, argumentsSet('symfony_request_methods'));
+	expectedArguments(\Symfony\Component\DomCrawler\AbstractUriElement::__construct(), 2, argumentsSet('symfony_request_methods'));
+	expectedArguments(\Symfony\Component\DomCrawler\Form::__construct(), 2, argumentsSet('symfony_request_methods'));
+	expectedReturnValues(\Symfony\Component\DomCrawler\Link::getMethod(), argumentsSet('symfony_request_methods'));
+	expectedReturnValues(\Symfony\Component\DomCrawler\Form::getMethod(), argumentsSet('symfony_request_methods'));
 
     registerArgumentsSet('symfony_request_trusted_header_set',
         \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED |
