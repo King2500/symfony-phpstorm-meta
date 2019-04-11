@@ -11,6 +11,7 @@
         }
     ],
     "require-dev": {
-        "symfony/symfony": "~4.2"
+        "symfony/symfony": "~4.2",
+        "monolog/monolog": "^1.24"
     }
 }
