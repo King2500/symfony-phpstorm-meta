@@ -84,6 +84,10 @@ namespace PHPSTORM_META {
     expectedArguments(\Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy::__construct(), 0, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\FingersCrossed\ChannelLevelActivationStrategy::__construct(), 0, argumentsSet('monolog_levels'));
 
+    expectedArguments(\Monolog\Processor\GitProcessor::__construct(), 0, argumentsSet('monolog_levels'));
+    expectedArguments(\Monolog\Processor\IntrospectionProcessor::__construct(), 0, argumentsSet('monolog_levels'));
+    expectedArguments(\Monolog\Processor\MercurialProcessor::__construct(), 0, argumentsSet('monolog_levels'));
+
     // UNUSED because we prefer LogLevel from PSR-3 (see Psr/Log/.phpstorm.meta.php)
     //expectedArguments(\Monolog\Logger::log(), 0, argumentsSet('monolog_levels'));
     //expectedArguments(\Monolog\Logger::toMonologLevel(), 0, argumentsSet('monolog_levels'));
@@ -94,11 +98,12 @@ namespace PHPSTORM_META {
         \Monolog\Formatter\JsonFormatter::BATCH_MODE_NEWLINES,
     );
     expectedArguments(\Monolog\Formatter\JsonFormatter::__construct(), 0, argumentsSet('monolog_json_formatter_modes'));
+    expectedArguments(\Monolog\Formatter\LogglyFormatter::__construct(), 0, argumentsSet('monolog_json_formatter_modes'));
     expectedReturnValues(\Monolog\Formatter\JsonFormatter::getBatchMode(), argumentsSet('monolog_json_formatter_modes'));
 
     registerArgumentsSet('monolog_formatter_dateformats',
         \Monolog\Formatter\NormalizerFormatter::SIMPLE_DATE,
-        \Monolog\Handler\DynamoDbHandler::DATE_FORMAT,
+        //\Monolog\Handler\DynamoDbHandler::DATE_FORMAT,
         \DateTime::ISO8601,
         \DateTime::ATOM,
         \DateTime::COOKIE,
@@ -113,10 +118,25 @@ namespace PHPSTORM_META {
         \DateTime::RSS,
         \DateTime::W3C,
         'Y-m-d H:i:s',
+        'Y-m-d H:i',
         'Y-m-d',
         'H:i:s',
     );
     expectedArguments(\Monolog\Formatter\NormalizerFormatter::__construct(), 0, argumentsSet('monolog_formatter_dateformats'));
+    expectedArguments(\Monolog\Formatter\HtmlFormatter::__construct(), 0, argumentsSet('monolog_formatter_dateformats'));
+    expectedArguments(\Monolog\Formatter\LineFormatter::__construct(), 1, argumentsSet('monolog_formatter_dateformats'));
+
+    registerArgumentsSet('monolog_formatter_line_formats',
+        \Monolog\Formatter\LineFormatter::SIMPLE_FORMAT,
+        "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n",
+        "[%datetime%] %channel%.%level_name%: %message% %context%\n",
+        "[%datetime%] %channel%.%level_name%: %message%\n",
+        "[%datetime%] %message%\n",
+        "%message%\n",
+    );
+    expectedArguments(\Monolog\Formatter\LineFormatter::__construct(), 0, argumentsSet('monolog_formatter_line_formats'));
+
+    expectedArguments(\Monolog\Formatter\LogstashFormatter::__construct(), 4, \Monolog\Formatter\LogstashFormatter::V0, \Monolog\Formatter\LogstashFormatter::V1);
 
     registerArgumentsSet('monolog_formatter_dateformats_filename',
         \Monolog\Handler\RotatingFileHandler::FILE_PER_DAY,
