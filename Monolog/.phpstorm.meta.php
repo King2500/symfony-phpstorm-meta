@@ -10,7 +10,7 @@ namespace PHPSTORM_META {
         \Monolog\Logger::ERROR,
         \Monolog\Logger::CRITICAL,
         \Monolog\Logger::ALERT,
-        \Monolog\Logger::EMERGENCY,
+        \Monolog\Logger::EMERGENCY
     );
     registerArgumentsSet('monolog_levels_reversed',
         \Monolog\Logger::EMERGENCY,
@@ -20,7 +20,7 @@ namespace PHPSTORM_META {
         \Monolog\Logger::WARNING,
         \Monolog\Logger::NOTICE,
         \Monolog\Logger::INFO,
-        \Monolog\Logger::DEBUG,
+        \Monolog\Logger::DEBUG
     );
 
     expectedArguments(\Monolog\Logger::addRecord(), 0, argumentsSet('monolog_levels'));
@@ -95,7 +95,7 @@ namespace PHPSTORM_META {
 
     registerArgumentsSet('monolog_json_formatter_modes',
         \Monolog\Formatter\JsonFormatter::BATCH_MODE_JSON,
-        \Monolog\Formatter\JsonFormatter::BATCH_MODE_NEWLINES,
+        \Monolog\Formatter\JsonFormatter::BATCH_MODE_NEWLINES
     );
     expectedArguments(\Monolog\Formatter\JsonFormatter::__construct(), 0, argumentsSet('monolog_json_formatter_modes'));
     expectedArguments(\Monolog\Formatter\LogglyFormatter::__construct(), 0, argumentsSet('monolog_json_formatter_modes'));
@@ -120,7 +120,7 @@ namespace PHPSTORM_META {
         'Y-m-d H:i:s',
         'Y-m-d H:i',
         'Y-m-d',
-        'H:i:s',
+        'H:i:s'
     );
     expectedArguments(\Monolog\Formatter\NormalizerFormatter::__construct(), 0, argumentsSet('monolog_formatter_dateformats'));
     expectedArguments(\Monolog\Formatter\HtmlFormatter::__construct(), 0, argumentsSet('monolog_formatter_dateformats'));
@@ -132,7 +132,7 @@ namespace PHPSTORM_META {
         "[%datetime%] %channel%.%level_name%: %message% %context%\n",
         "[%datetime%] %channel%.%level_name%: %message%\n",
         "[%datetime%] %message%\n",
-        "%message%\n",
+        "%message%\n"
     );
     expectedArguments(\Monolog\Formatter\LineFormatter::__construct(), 0, argumentsSet('monolog_formatter_line_formats'));
 
@@ -158,7 +158,7 @@ namespace PHPSTORM_META {
         LOG_MAIL,
         LOG_NEWS,
         LOG_SYSLOG,
-        LOG_UUCP,
+        LOG_UUCP
     );
     expectedArguments(\Monolog\Handler\AbstractSyslogHandler::__construct(), 0, argumentsSet('syslog_facilities'));
     expectedArguments(\Monolog\Handler\SyslogHandler::__construct(), 1, argumentsSet('syslog_facilities'));
@@ -168,7 +168,7 @@ namespace PHPSTORM_META {
 
     registerArgumentsSet('errorlog_types',
         \Monolog\Handler\ErrorLogHandler::OPERATING_SYSTEM,
-        \Monolog\Handler\ErrorLogHandler::SAPI,
+        \Monolog\Handler\ErrorLogHandler::SAPI
     );
     expectedArguments(\Monolog\Handler\ErrorLogHandler::__construct(), 0, argumentsSet('errorlog_types'));
 

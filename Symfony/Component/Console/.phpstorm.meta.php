@@ -205,7 +205,7 @@ namespace PHPSTORM_META {
 	expectedReturnValues(\Symfony\Component\Console\Helper\TableStyle::getPadType(), STR_PAD_LEFT, STR_PAD_RIGHT, STR_PAD_BOTH);
 
 	registerArgumentsSet('symfony_console_exitcodes',
-		\Symfony\Component\Console\Event\ConsoleCommandEvent::RETURN_CODE_DISABLED,
+		\Symfony\Component\Console\Event\ConsoleCommandEvent::RETURN_CODE_DISABLED
 	);
 	expectedReturnValues(\Symfony\Component\Console\Event\ConsoleErrorEvent::getExitCode(), argumentsSet('symfony_console_exitcodes'));
 	expectedReturnValues(\Symfony\Component\Console\Event\ConsoleTerminateEvent::getExitCode(), argumentsSet('symfony_console_exitcodes'));
