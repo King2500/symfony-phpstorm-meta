@@ -28,12 +28,4 @@ namespace PHPSTORM_META {
 	expectedArguments(\Monolog\Logger::toMonologLevel(), 0, argumentsSet('psr_log_levels'));
     expectedArguments(\Monolog\SignalHandler::registerSignalHandler(), 1, argumentsSet('psr_log_levels_reversed'));
 
-	// Required until 2019.1.1 is shipped: https://youtrack.jetbrains.com/issue/WI-45824
-    // all are implementations of LoggerInterface::log()
-	expectedArguments(\Psr\Log\AbstractLogger::log(), 0, argumentsSet('psr_log_levels'));
-	expectedArguments(\Psr\Log\NullLogger::log(), 0, argumentsSet('psr_log_levels'));
-	expectedArguments(\Symfony\Component\Console\Logger\ConsoleLogger::log(), 0, argumentsSet('psr_log_levels'));
-	expectedArguments(\Symfony\Component\HttpKernel\Log\Logger::log(), 0, argumentsSet('psr_log_levels'));
-	expectedArguments(\Symfony\Component\Debug\BufferingLogger::log(), 0, argumentsSet('psr_log_levels'));
-    expectedArguments(\Monolog\Logger::log(), 0, argumentsSet('psr_log_levels'));
 }
