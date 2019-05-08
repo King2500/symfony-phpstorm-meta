@@ -217,6 +217,8 @@ namespace PHPSTORM_META {
 
     expectedArguments(\Symfony\Component\Security\Http\HttpUtils::createRedirectResponse(), 2, argumentsSet('symfony_response_codes_redirect'));
 
+    expectedReturnValues(\Symfony\Contracts\HttpClient\ResponseInterface::getStatusCode(), argumentsSet('symfony_response_codes'));
+
     expectedArguments(\header(), 2, argumentsSet('symfony_response_codes'));
 	expectedArguments(\http_response_code(), 0, argumentsSet('symfony_response_codes'));
     expectedReturnValues(\http_response_code(), argumentsSet('symfony_response_codes'));
