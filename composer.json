@@ -3,7 +3,7 @@
     "license": "MIT",
     "description": "PhpStorm meta data for expected arguments completion in symfony projects.",
     "keywords": ["PhpStorm", "Symfony", "metadata", "autocomplete", "code"],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Thomas Schulz",
