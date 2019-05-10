@@ -30,4 +30,24 @@ namespace PHPSTORM_META {
             'translator' => \Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper::class,
         ])
     );
+
+	registerArgumentsSet('symfony_framework_templatereference_parameters',
+		'bundle',
+		'controller',
+		'name',
+		'format',
+		'engine'
+	);
+	expectedArguments(\Symfony\Bundle\FrameworkBundle\Templating\TemplateReference::set(), 0, argumentsSet('symfony_framework_templatereference_parameters'));
+	expectedArguments(\Symfony\Bundle\FrameworkBundle\Templating\TemplateReference::get(), 0, argumentsSet('symfony_framework_templatereference_parameters'));
+
+	registerArgumentsSet('symfony_framework_templatereference_parameters_array', array(
+		'bundle' => '',
+		'controller' => '',
+		'name' => '',
+		'format' => '',
+		'engine' => '',
+	));
+	expectedReturnValues(\Symfony\Bundle\FrameworkBundle\Templating\TemplateReference::all(), argumentsSet('symfony_framework_templatereference_parameters_array'));
+
 }
