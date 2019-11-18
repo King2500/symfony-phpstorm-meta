@@ -5,6 +5,7 @@ namespace PHPSTORM_META {
 	registerArgumentsSet('symfony_httpclient_default_options', array(
 		'auth_basic' => null, // array|string
 		'auth_bearer' => null, // string
+		'auth_ntlm' => null, // string // since Symfony 4.4
 		'query' => [], // string[]
 		'headers' => [
 			'Accept' => '',
@@ -56,7 +57,7 @@ namespace PHPSTORM_META {
 			'X-Requested-With' => '',
 		], // iterable|string[]|string[][]
 		'body' => '', // array|string|resource|\Traversable|\Closure
-		'json' => null, // array|\JsonSerializable
+		'json' => null, // array|object|\JsonSerializable
 		'user_data' => null, // mixed
 		'max_redirects' => 20, // int
 		'http_version' => null, // string
@@ -88,6 +89,7 @@ namespace PHPSTORM_META {
 		'*' => array(
 			'auth_basic' => null, // array|string
 			'auth_bearer' => null, // string
+			'auth_ntlm' => null, // string // since Symfony 4.4
 			'query' => [], // string[]
 			'headers' => [
 				'Accept' => '',
@@ -139,7 +141,7 @@ namespace PHPSTORM_META {
 				'X-Requested-With' => '',
 			], // iterable|string[]|string[][]
 			'body' => '', // array|string|resource|\Traversable|\Closure
-			'json' => null, // array|\JsonSerializable
+			'json' => null, // array|object|\JsonSerializable
 			'user_data' => null, // mixed
 			'max_redirects' => 20, // int
 			'http_version' => null, // string
@@ -202,6 +204,7 @@ namespace PHPSTORM_META {
 		'http_method',
 		'http_code',
 		'error',
+		'debug' => '', // since Symfony 4.4
 		'user_data',
 		'url'
 	);
