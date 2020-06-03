@@ -125,3 +125,4 @@ $RECYCLE.BIN/
 .nfs*
 
 /test.php
+/composer.lock
