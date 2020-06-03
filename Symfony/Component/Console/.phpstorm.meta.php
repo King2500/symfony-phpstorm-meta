@@ -38,6 +38,10 @@ namespace PHPSTORM_META {
 	expectedArguments(\Symfony\Component\Console\Helper\ProcessHelper::run(), 4, argumentsSet('symfony_output_verbosity_levels'));
 	expectedArguments(\Symfony\Component\Console\Output\OutputInterface::setVerbosity(), 0, argumentsSet('symfony_output_verbosity_levels'));
 	expectedReturnValues(\Symfony\Component\Console\Output\OutputInterface::getVerbosity(), argumentsSet('symfony_output_verbosity_levels'));
+    expectedArguments(\Symfony\Component\Console\Output\Output::__construct(), 0, argumentsSet('symfony_output_verbosity_levels'));
+    expectedArguments(\Symfony\Component\Console\Output\ConsoleOutput::__construct(), 0, argumentsSet('symfony_output_verbosity_levels'));
+    expectedArguments(\Symfony\Component\Console\Output\StreamOutput::__construct(), 1, argumentsSet('symfony_output_verbosity_levels'));
+    expectedArguments(\Symfony\Component\Console\Output\ConsoleSectionOutput::__construct(), 2, argumentsSet('symfony_output_verbosity_levels'));
 
 	registerArgumentsSet('symfony_output_options',
 		\Symfony\Component\Console\Output\OutputInterface::OUTPUT_NORMAL |
