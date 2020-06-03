@@ -46,6 +46,10 @@ namespace PHPSTORM_META {
 	expectedReturnValues(\Symfony\Component\DomCrawler\Link::getMethod(), argumentsSet('symfony_request_methods'));
 	expectedReturnValues(\Symfony\Component\DomCrawler\Form::getMethod(), argumentsSet('symfony_request_methods'));
 
+    expectedArguments(\GuzzleHttp\ClientInterface::createRequest(), 0, argumentsSet('symfony_request_methods'));
+    expectedArguments(\GuzzleHttp\ClientInterface::request(), 0, argumentsSet('symfony_request_methods'));
+    expectedArguments(\GuzzleHttp\ClientInterface::requestAsync(), 0, argumentsSet('symfony_request_methods'));
+
     registerArgumentsSet('symfony_request_trusted_header_set',
         \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED |
         \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR |
@@ -218,6 +222,9 @@ namespace PHPSTORM_META {
     expectedArguments(\Symfony\Component\Security\Http\HttpUtils::createRedirectResponse(), 2, argumentsSet('symfony_response_codes_redirect'));
 
     expectedReturnValues(\Symfony\Contracts\HttpClient\ResponseInterface::getStatusCode(), argumentsSet('symfony_response_codes'));
+    expectedReturnValues(\GuzzleHttp\Message\ResponseInterface::getStatusCode(), argumentsSet('symfony_response_codes'));
+    expectedReturnValues(\Psr\Http\Message\ResponseInterface::getStatusCode(), argumentsSet('symfony_response_codes'));
+    expectedArguments(\Psr\Http\Message\ResponseInterface::withStatus(), 0, argumentsSet('symfony_response_codes'));
 
     expectedArguments(\header(), 2, argumentsSet('symfony_response_codes'));
 	expectedArguments(\http_response_code(), 0, argumentsSet('symfony_response_codes'));
