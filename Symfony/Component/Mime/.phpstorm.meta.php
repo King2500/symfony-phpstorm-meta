@@ -11,6 +11,9 @@ namespace PHPSTORM_META {
 	);
 	expectedArguments(\Symfony\Component\Mime\Email::priority(), 0, argumentsSet('symfony_mime_email_priorities'));
 	expectedReturnValues(\Symfony\Component\Mime\Email::getPriority(), argumentsSet('symfony_mime_email_priorities'));
+	expectedReturnValues(\Symfony\Bridge\Twig\Mime\NotificationEmail::determinePriority(), argumentsSet('symfony_mime_email_priorities'));
+	expectedReturnValues(\Symfony\Bridge\Twig\Mime\WrappedTemplatedEmail::getPriority(), argumentsSet('symfony_mime_email_priorities'));
+    expectedArguments(\Symfony\Bridge\Twig\Mime\WrappedTemplatedEmail::setPriority(), 0, argumentsSet('symfony_mime_email_priorities'));
 
 	registerArgumentsSet('symfony_mime_media_types',
 		'text',
@@ -175,6 +178,7 @@ namespace PHPSTORM_META {
 		'image/jpeg',
 		'image/png',
 		'image/gif',
+		'image/webp',
 		'audio/mpeg',
 		'audio/ogg',
 		'application/pdf',
@@ -205,4 +209,13 @@ namespace PHPSTORM_META {
 	expectedArguments(\Symfony\Component\Mime\Email::attachFromPath(), 2, argumentsSet('symfony_mime_mimetypes'));
 	expectedArguments(\Symfony\Component\Mime\Email::embed(), 2, argumentsSet('symfony_mime_mimetypes'));
 	expectedArguments(\Symfony\Component\Mime\Email::embedFromPath(), 2, argumentsSet('symfony_mime_mimetypes'));
+    expectedArguments(\Symfony\Bridge\Twig\Mime\WrappedTemplatedEmail::attach(), 2, argumentsSet('symfony_mime_mimetypes'));
+
+    registerArgumentsSet('symfony_mime_image_mimetypes',
+        'image/jpeg',
+        'image/png',
+        'image/gif',
+        'image/webp'
+    );
+    expectedArguments(\Symfony\Bridge\Twig\Mime\WrappedTemplatedEmail::image(), 1, argumentsSet('symfony_mime_image_mimetypes'));
 }
