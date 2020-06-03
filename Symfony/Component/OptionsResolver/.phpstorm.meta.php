@@ -3,35 +3,34 @@
 namespace PHPSTORM_META {
 
 	// note: array suffix "[]" was added in Symfony 3.4
-	// make available when Sf 3.4 is widely spread
 
 	registerArgumentsSet('symfony_allowed_types',
 		'string',
-		//'string[]',
+		'string[]',
 		'int',
-		//'int[]',
+		'int[]',
 		'bool',
-		//'bool[]',
+		'bool[]',
 		'float',
-		//'float[]',
+		'float[]',
 		'array',
-		//'array[]',
+		'array[]',
 		'object',
-		//'object[]',
+		'object[]',
 		'callable',
-		//'callable[]',
+		'callable[]',
 		'null',
-		//'null[]',
+		'null[]',
 		'numeric',
-		//'numeric[]',
+		'numeric[]',
 		'scalar',
-		//'scalar[]',
+		'scalar[]',
 		'resource',
-		//'resource[]',
+		'resource[]',
 		'iterable', // requires PHP >= 7.1.0
-		//'iterable[]', // requires PHP >= 7.1.0
-		'countable'//, // requires PHP >= 7.3.0
-		//'countable[]' // requires PHP >= 7.3.0
+		'iterable[]', // requires PHP >= 7.1.0
+		'countable', // requires PHP >= 7.3.0
+		'countable[]' // requires PHP >= 7.3.0
 	);
 
 	expectedArguments(\Symfony\Component\OptionsResolver\OptionsResolver::setAllowedTypes(), 1, argumentsSet('symfony_allowed_types'));
