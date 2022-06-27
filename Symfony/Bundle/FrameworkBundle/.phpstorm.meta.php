@@ -2,8 +2,6 @@
 
 namespace PHPSTORM_META {
 
-	use Symfony\Component\HttpFoundation\Cookie;
-
 	override(\Symfony\Bundle\FrameworkBundle\Templating\PhpEngine::get(0),
         map([
             'actions' => \Symfony\Bundle\FrameworkBundle\Templating\Helper\ActionsHelper::class,
@@ -58,9 +56,9 @@ namespace PHPSTORM_META {
 	expectedArguments(\Symfony\Config\Framework\Workflows\WorkflowsConfig::type(), 0, 'state_machine', 'workflow');
 
 	registerArgumentsSet('symfony_framework_cookie_samesite',
-		Cookie::SAMESITE_LAX,
-		Cookie::SAMESITE_STRICT,
-		Cookie::SAMESITE_NONE,
+		\Symfony\Component\HttpFoundation\Cookie::SAMESITE_LAX,
+		\Symfony\Component\HttpFoundation\Cookie::SAMESITE_STRICT,
+		\Symfony\Component\HttpFoundation\Cookie::SAMESITE_NONE,
 		null
 	);
 	expectedArguments(\Symfony\Config\Framework\SessionConfig::cookieSamesite(), 0, argumentsSet('symfony_framework_cookie_samesite'));
