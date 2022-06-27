@@ -15,6 +15,7 @@ namespace PHPSTORM_META {
 		\Symfony\Component\HttpKernel\KernelEvents::TERMINATE,
 		\Symfony\Component\HttpKernel\KernelEvents::FINISH_REQUEST,
 		\Symfony\Component\Console\ConsoleEvents::COMMAND,
+		\Symfony\Component\Console\ConsoleEvents::SIGNAL,
 		\Symfony\Component\Console\ConsoleEvents::TERMINATE,
 		\Symfony\Component\Console\ConsoleEvents::ERROR,
 		\Symfony\Component\Form\FormEvents::PRE_SUBMIT,
@@ -28,13 +29,11 @@ namespace PHPSTORM_META {
 		\Symfony\Component\Security\Http\SecurityEvents::SWITCH_USER
 	);
 
-	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::dispatch(), 0, argumentsSet('symfony_events'));
+	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::dispatch(), 1, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::getListeners(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::getListenerPriority(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::hasListeners(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::addListener(), 0, argumentsSet('symfony_events'));
 	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcherInterface::removeListener(), 0, argumentsSet('symfony_events'));
-	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::doDispatch(), 1, argumentsSet('symfony_events'));
-	expectedArguments(\Symfony\Component\EventDispatcher\EventDispatcher::sortListeners(), 0, argumentsSet('symfony_events'));
 
 }
