@@ -16,4 +16,6 @@ namespace PHPSTORM_META {
 	expectedReturnValues(\Symfony\Component\HttpKernel\Event\KernelEvent::getRequestType(), argumentsSet('symfony_http_kernel_requests'));
 
 	expectedArguments(\Symfony\Component\HttpKernel\Fragment\FragmentHandler::render(), 1, 'inline', 'esi', 'ssi', 'hinclude');
+
+	xAdvancedCompletion(\Symfony\Component\HttpKernel\Attribute\MapDateTime::__construct(), 0, 'date_format');
 }

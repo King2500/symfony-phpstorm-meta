@@ -51,4 +51,40 @@ namespace PHPSTORM_META {
 		'yaml'
 	);
 	expectedArguments(\Symfony\Component\Routing\RouteCollectionBuilder::import(), 2, argumentsSet('symfony_route_loader_types'));
+
+	registerArgumentsSet('symfony_route_methods',
+		'GET',
+		'POST',
+		'HEAD',
+		'PUT',
+		'PATCH',
+		'DELETE',
+		'PURGE',
+		'OPTIONS',
+		'TRACE',
+		'CONNECT'
+	);
+	expectedArguments(\Symfony\Component\Routing\Annotation\Route::__construct(), 6, argumentsSet('symfony_route_methods'));
+
+	registerArgumentsSet('symfony_route_schemes',
+		'https',
+		'http'
+	);
+	expectedArguments(\Symfony\Component\Routing\Annotation\Route::__construct(), 7, argumentsSet('symfony_route_schemes'));
+
+	registerArgumentsSet('symfony_route_formats',
+		'html',
+		'txt',
+		'js',
+		'css',
+		'json',
+		'xml',
+		'rdf',
+		'atom',
+		'rss',
+		'form'
+	);
+	expectedArguments(\Symfony\Component\Routing\Annotation\Route::__construct(), 11, argumentsSet('symfony_route_formats'));
+
+	expectedArguments(\Symfony\Component\Routing\Annotation\Route::__construct(), 14, 'dev', 'prod', 'test');
 }

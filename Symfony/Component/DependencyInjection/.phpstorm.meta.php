@@ -29,4 +29,7 @@ namespace PHPSTORM_META {
 	expectedArguments(\Symfony\Component\DependencyInjection\Reference::__construct(), 1, argumentsSet('symfony_di_invalid_ref_behaviors'));
 	expectedArguments(\Symfony\Component\DependencyInjection\TypedReference::__construct(), 2, argumentsSet('symfony_di_invalid_ref_behaviors'));
 	expectedReturnValues(\Symfony\Component\DependencyInjection\Reference::getInvalidBehavior(), argumentsSet('symfony_di_invalid_ref_behaviors'));
+
+	expectedArguments(\Symfony\Component\DependencyInjection\Attribute\AsDecorator::__construct(), 2, argumentsSet('symfony_di_invalid_ref_behaviors'));
+	expectedArguments(\Symfony\Component\DependencyInjection\Attribute\When::__construct(), 0, 'dev', 'prod', 'test');
 }
