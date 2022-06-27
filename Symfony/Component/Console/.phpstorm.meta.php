@@ -210,7 +210,8 @@ namespace PHPSTORM_META {
 
 	registerArgumentsSet('symfony_console_exitcodes',
         \Symfony\Component\Console\Command\Command::SUCCESS,
-        \Symfony\Component\Console\Command\Command::FAILURE
+        \Symfony\Component\Console\Command\Command::FAILURE,
+		\Symfony\Component\Console\Command\Command::INVALID
     );
     expectedReturnValues(\Symfony\Component\Console\Command\Command::execute(), argumentsSet('symfony_console_exitcodes'));
     expectedReturnValues(\Symfony\Component\Console\Command\Command::run(), argumentsSet('symfony_console_exitcodes'));
@@ -218,6 +219,7 @@ namespace PHPSTORM_META {
 	registerArgumentsSet('symfony_console_event_exitcodes',
         \Symfony\Component\Console\Command\Command::SUCCESS,
         \Symfony\Component\Console\Command\Command::FAILURE,
+		\Symfony\Component\Console\Command\Command::INVALID,
 		\Symfony\Component\Console\Event\ConsoleCommandEvent::RETURN_CODE_DISABLED
 	);
     expectedArguments(\Symfony\Component\Console\Event\ConsoleErrorEvent::setExitCode(), 0, argumentsSet('symfony_console_event_exitcodes'));
