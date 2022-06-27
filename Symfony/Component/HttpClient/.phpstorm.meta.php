@@ -204,7 +204,7 @@ namespace PHPSTORM_META {
 		'http_method',
 		'http_code',
 		'error',
-		'debug' => '', // since Symfony 4.4
+		'debug', // since Symfony 4.4
 		'user_data',
 		'url'
 	);
