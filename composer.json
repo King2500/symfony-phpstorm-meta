@@ -11,7 +11,7 @@
         }
     ],
     "require-dev": {
-        "symfony/symfony": "~5.0",
+        "symfony/symfony": "~6.0",
         "monolog/monolog": "^1.24",
         "guzzlehttp/guzzle": "~6.0"
     }
