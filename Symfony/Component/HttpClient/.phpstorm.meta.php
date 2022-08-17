@@ -281,4 +281,37 @@ namespace PHPSTORM_META {
 		'x-xss-protection' => [],
 	));
 	expectedReturnValues(\Symfony\Contracts\HttpClient\ResponseInterface::getHeaders(), argumentsSet('symfony_httpclient_response_headers_array'));
+
+    registerArgumentsSet('symfony_response_codes_client_exception',
+        \Symfony\Component\HttpFoundation\Response::HTTP_NOT_FOUND,
+        \Symfony\Component\HttpFoundation\Response::HTTP_FORBIDDEN,
+        \Symfony\Component\HttpFoundation\Response::HTTP_GONE,
+        \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
+        \Symfony\Component\HttpFoundation\Response::HTTP_UNAUTHORIZED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_PAYMENT_REQUIRED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_METHOD_NOT_ALLOWED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_NOT_ACCEPTABLE,
+        \Symfony\Component\HttpFoundation\Response::HTTP_PROXY_AUTHENTICATION_REQUIRED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_REQUEST_TIMEOUT,
+        \Symfony\Component\HttpFoundation\Response::HTTP_CONFLICT,
+        \Symfony\Component\HttpFoundation\Response::HTTP_LENGTH_REQUIRED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_PRECONDITION_FAILED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_REQUEST_ENTITY_TOO_LARGE,
+        \Symfony\Component\HttpFoundation\Response::HTTP_REQUEST_URI_TOO_LONG,
+        \Symfony\Component\HttpFoundation\Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
+        \Symfony\Component\HttpFoundation\Response::HTTP_REQUESTED_RANGE_NOT_SATISFIABLE,
+        \Symfony\Component\HttpFoundation\Response::HTTP_EXPECTATION_FAILED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_I_AM_A_TEAPOT,
+        \Symfony\Component\HttpFoundation\Response::HTTP_MISDIRECTED_REQUEST,
+        \Symfony\Component\HttpFoundation\Response::HTTP_UNPROCESSABLE_ENTITY,
+        \Symfony\Component\HttpFoundation\Response::HTTP_LOCKED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_FAILED_DEPENDENCY,
+        \Symfony\Component\HttpFoundation\Response::HTTP_TOO_EARLY,
+        \Symfony\Component\HttpFoundation\Response::HTTP_UPGRADE_REQUIRED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_PRECONDITION_REQUIRED,
+        \Symfony\Component\HttpFoundation\Response::HTTP_TOO_MANY_REQUESTS,
+        \Symfony\Component\HttpFoundation\Response::HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE,
+        \Symfony\Component\HttpFoundation\Response::HTTP_UNAVAILABLE_FOR_LEGAL_REASONS
+    );
+    expectedReturnValues(\Symfony\Component\HttpClient\Exception\ClientException::getCode(), argumentsSet('symfony_response_codes_client_exception'));
 }
