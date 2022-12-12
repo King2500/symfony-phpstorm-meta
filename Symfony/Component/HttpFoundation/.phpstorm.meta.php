@@ -72,6 +72,7 @@ namespace PHPSTORM_META {
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getFormat(), argumentsSet('symfony_request_formats'));
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getRequestFormat(), argumentsSet('symfony_request_formats'));
     expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getContentType(), argumentsSet('symfony_request_formats'));
+    expectedReturnValues(\Symfony\Component\HttpFoundation\Request::getContentTypeFormat(), argumentsSet('symfony_request_formats'));
 
     registerArgumentsSet('symfony_request_mimes',
         'text/html',
