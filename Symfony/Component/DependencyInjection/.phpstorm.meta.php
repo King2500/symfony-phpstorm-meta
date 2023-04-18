@@ -35,7 +35,8 @@ namespace PHPSTORM_META {
 	registerArgumentsSet('symfony_environments',
 		'dev',
 		'prod',
-		'test'
+		'test',
+		'never'
 	);
 	expectedArguments(\Symfony\Component\DependencyInjection\Attribute\When::__construct(), 0, argumentsSet('symfony_environments'));
 
