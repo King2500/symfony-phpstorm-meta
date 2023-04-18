@@ -32,13 +32,12 @@ namespace PHPSTORM_META {
 
 	expectedArguments(\Symfony\Component\DependencyInjection\Attribute\AsDecorator::__construct(), 2, argumentsSet('symfony_di_invalid_ref_behaviors'));
 
+	expectedArguments(\Symfony\Component\DependencyInjection\Attribute\When::__construct(), 0, 'dev', 'prod', 'test', 'never');
+
 	registerArgumentsSet('symfony_environments',
 		'dev',
 		'prod',
-		'test',
-		'never'
+		'test'
 	);
-	expectedArguments(\Symfony\Component\DependencyInjection\Attribute\When::__construct(), 0, argumentsSet('symfony_environments'));
-
 	expectedReturnValues(\Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator::env(), argumentsSet('symfony_environments'));
 }
