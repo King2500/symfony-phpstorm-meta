@@ -187,4 +187,11 @@ namespace PHPSTORM_META {
     expectedArguments(\Monolog\Handler\StreamHandler::__construct(), 3, 0644, 0666);
 
     expectedArguments(\Monolog\Handler\SyslogHandler::__construct(), 4, LOG_PID | LOG_PERROR | LOG_ODELAY | LOG_NDELAY | LOG_CONS);
+    
+    registerArgumentsSet('email_content_types',
+        'text/plain',
+        'text/html'
+    );
+    expectedArguments(\Monolog\Handler\NativeMailerHandler::setContentType(), 0, argumentsSet('email_content_types'));
+    expectedReturnValues(\Monolog\Handler\NativeMailerHandler::getContentType(), argumentsSet('email_content_types'));
 }
