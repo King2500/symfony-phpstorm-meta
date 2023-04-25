@@ -60,7 +60,7 @@ namespace PHPSTORM_META {
     expectedArguments(\Monolog\Handler\MandrillHandler::__construct(), 2, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\MongoDBHandler::__construct(), 3, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\NativeMailerHandler::__construct(), 3, argumentsSet('monolog_levels'));
-    expectedArguments(\Monolog\Handler\NewRelicHandler(), 0, argumentsSet('monolog_levels'));
+    expectedArguments(\Monolog\Handler\NewRelicHandler::__construct(), 0, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\NullHandler::__construct(), 0, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\PHPConsoleHandler::__construct(), 2, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\PsrHandler::__construct(), 1, argumentsSet('monolog_levels'));
