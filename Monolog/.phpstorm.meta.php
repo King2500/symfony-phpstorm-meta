@@ -88,7 +88,8 @@ namespace PHPSTORM_META {
     expectedArguments(\Monolog\Processor\IntrospectionProcessor::__construct(), 0, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Processor\MercurialProcessor::__construct(), 0, argumentsSet('monolog_levels'));
 
-    // UNUSED because we prefer LogLevel from PSR-3 (see Psr/Log/.phpstorm.meta.php)
+    // UNUSED because we prefer LogLevel from PSR-3
+    /** @see ../Psr/Log/.phpstorm.meta.php */
     //expectedArguments(\Monolog\Logger::log(), 0, argumentsSet('monolog_levels'));
     //expectedArguments(\Monolog\Logger::toMonologLevel(), 0, argumentsSet('monolog_levels'));
     //expectedArguments(\Monolog\Handler\AbstractHandler::__construct(), 0, argumentsSet('monolog_levels'));
