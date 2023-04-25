@@ -47,6 +47,7 @@ namespace PHPSTORM_META {
     expectedArguments(\Monolog\Handler\FilterHandler::__construct(), 2, argumentsSet('monolog_levels_reversed'));
     expectedArguments(\Monolog\Handler\FilterHandler::setAcceptedLevels(), 1, argumentsSet('monolog_levels_reversed'));
     //expectedReturnValues(\Monolog\Handler\FilterHandler::getAcceptedLevels(), array(argumentsSet('monolog_levels')));
+    expectedArguments(\Monolog\Handler\FingersCrossedHandler::__construct(), 1, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\FingersCrossedHandler::__construct(), 5, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\FleepHookHandler::__construct(), 1, argumentsSet('monolog_levels'));
     expectedArguments(\Monolog\Handler\FlowdockHandler::__construct(), 1, argumentsSet('monolog_levels'));
