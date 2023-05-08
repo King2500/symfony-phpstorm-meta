@@ -5,6 +5,9 @@ namespace PHPSTORM_META {
 	override(\Symfony\Component\EventDispatcher\EventDispatcher::dispatch(0), type(0));
 	override(\Symfony\Component\EventDispatcher\EventDispatcher::dispatch(0), type(1)); // BC for Symfony 4.x and lower
 
+	override(\Symfony\Contracts\EventDispatcher\EventDispatcherInterface::dispatch(0), type(0));
+	override(\Symfony\Contracts\EventDispatcher\EventDispatcherInterface::dispatch(0), type(1)); // BC for Symfony 4.x and lower
+
 	registerArgumentsSet('symfony_events',
 		\Symfony\Component\HttpKernel\KernelEvents::REQUEST,
 		\Symfony\Component\HttpKernel\KernelEvents::EXCEPTION,
