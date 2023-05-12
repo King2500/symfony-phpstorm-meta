@@ -22,7 +22,8 @@ namespace PHPSTORM_META {
 		\Symfony\Component\Yaml\Yaml::DUMP_EXCEPTION_ON_INVALID_TYPE |
 		\Symfony\Component\Yaml\Yaml::DUMP_OBJECT_AS_MAP |
 		\Symfony\Component\Yaml\Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK |
-		\Symfony\Component\Yaml\Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE
+		\Symfony\Component\Yaml\Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE |
+		\Symfony\Component\Yaml\Yaml::DUMP_NUMERIC_KEY_AS_STRING
 	);
 	expectedArguments(\Symfony\Component\Yaml\Yaml::dump(), 3, argumentsSet('symfony_yaml_dump_flags'));
 	expectedArguments(\Symfony\Component\Yaml\Dumper::dump(), 3, argumentsSet('symfony_yaml_dump_flags'));
