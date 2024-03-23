@@ -14,7 +14,6 @@
         "symfony/symfony": "~6.0",
         "monolog/monolog": "^1.24",
         "guzzlehttp/guzzle": "~6.0",
-        "phpstan/phpstan": "^0.12.0@dev",
-        "vimeo/psalm": "3.x-dev"
+        "phpstan/phpstan": "^0.12.0@dev"
     }
 }
