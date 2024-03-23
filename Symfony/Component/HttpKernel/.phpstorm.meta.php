@@ -3,6 +3,7 @@
 namespace PHPSTORM_META {
 	registerArgumentsSet('symfony_http_kernel_requests',
 		\Symfony\Component\HttpKernel\HttpKernelInterface::MASTER_REQUEST,
+		\Symfony\Component\HttpKernel\HttpKernelInterface::MAIN_REQUEST,
 		\Symfony\Component\HttpKernel\HttpKernelInterface::SUB_REQUEST
 	);
 
