@@ -136,4 +136,30 @@ namespace PHPSTORM_META {
     expectedArguments(\Symfony\Component\Validator\ConstraintViolation::__construct(), 7, argumentsSet('symfony_validator_constraint_violation_codes'));
     expectedArguments(\Symfony\Component\Validator\Violation\ConstraintViolationBuilder::setCode(), 0, argumentsSet('symfony_validator_constraint_violation_codes'));
     expectedReturnValues(\Symfony\Component\Validator\ConstraintViolationInterface::getCode(), argumentsSet('symfony_validator_constraint_violation_codes'));
+
+    registerArgumentsSet('symfony_validator_nosuspiciouscharacters_checks',
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::CHECK_INVISIBLE,
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::CHECK_MIXED_NUMBERS,
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::CHECK_HIDDEN_OVERLAY,
+    );
+    expectedArguments(\Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::__construct(), 5, argumentsSet('symfony_validator_nosuspiciouscharacters_checks'));
+
+    registerArgumentsSet('symfony_validator_nosuspiciouscharacters_restriction_levels',
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::RESTRICTION_LEVEL_MINIMAL,
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::RESTRICTION_LEVEL_MODERATE,
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::RESTRICTION_LEVEL_HIGH,
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::RESTRICTION_LEVEL_SINGLE_SCRIPT,
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::RESTRICTION_LEVEL_ASCII,
+        \Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::RESTRICTION_LEVEL_NONE,
+    );
+    expectedArguments(\Symfony\Component\Validator\Constraints\NoSuspiciousCharacters::__construct(), 6, argumentsSet('symfony_validator_nosuspiciouscharacters_restriction_levels'));
+
+    registerArgumentsSet('symfony_validator_passwordstrength_strengths',
+        \Symfony\Component\Validator\Constraints\PasswordStrength::STRENGTH_WEAK,
+        \Symfony\Component\Validator\Constraints\PasswordStrength::STRENGTH_MEDIUM,
+        \Symfony\Component\Validator\Constraints\PasswordStrength::STRENGTH_STRONG,
+        \Symfony\Component\Validator\Constraints\PasswordStrength::STRENGTH_VERY_STRONG,
+        \Symfony\Component\Validator\Constraints\PasswordStrength::STRENGTH_VERY_WEAK,
+    );
+    expectedArguments(\Symfony\Component\Validator\Constraints\PasswordStrength::__construct(), 1, argumentsSet('symfony_validator_passwordstrength_strengths'));
 }
