@@ -216,6 +216,9 @@ namespace PHPSTORM_META {
     expectedArguments(\Symfony\Component\HttpFoundation\BinaryFileResponse::create(), 1, argumentsSet('symfony_response_codes'));
 
     expectedArguments(\Symfony\Component\HttpKernel\Exception\HttpException::__construct(), 0, argumentsSet('symfony_response_codes'));
+    expectedArguments(\Symfony\Component\HttpKernel\Attribute\WithHttpStatus::__construct(), 0, argumentsSet('symfony_response_codes'));
+    expectedArguments(\Symfony\Component\HttpKernel\Attribute\MapQueryString::__construct(), 3, argumentsSet('symfony_response_codes'));
+    expectedArguments(\Symfony\Component\HttpKernel\Attribute\MapRequestPayload::__construct(), 4, argumentsSet('symfony_response_codes'));
 
     expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::redirect(), 1, argumentsSet('symfony_response_codes_redirect'));
     expectedArguments(\Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait::redirectToRoute(), 2, argumentsSet('symfony_response_codes_redirect'));

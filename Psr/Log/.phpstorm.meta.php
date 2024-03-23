@@ -24,6 +24,7 @@ namespace PHPSTORM_META {
 	);
 
 	expectedArguments(\Symfony\Component\HttpKernel\Log\Logger::__construct(), 0, argumentsSet('psr_log_levels'));
+	expectedArguments(\Symfony\Component\HttpKernel\Attribute\WithLogLevel::__construct(), 0, argumentsSet('psr_log_levels'));
 	expectedArguments(\Monolog\Logger::toMonologLevel(), 0, argumentsSet('psr_log_levels'));
     expectedArguments(\Monolog\SignalHandler::registerSignalHandler(), 1, argumentsSet('psr_log_levels_reversed'));
 
