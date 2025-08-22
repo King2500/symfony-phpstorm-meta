@@ -162,4 +162,22 @@ namespace PHPSTORM_META {
         \Symfony\Component\Validator\Constraints\PasswordStrength::STRENGTH_VERY_WEAK,
     );
     expectedArguments(\Symfony\Component\Validator\Constraints\PasswordStrength::__construct(), 1, argumentsSet('symfony_validator_passwordstrength_strengths'));
+
+    registerArgumentsSet('symfony_validator_macaddress_types',
+        \Symfony\Component\Validator\Constraints\MacAddress::ALL,
+        \Symfony\Component\Validator\Constraints\MacAddress::ALL_NO_BROADCAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::LOCAL_ALL,
+        \Symfony\Component\Validator\Constraints\MacAddress::LOCAL_NO_BROADCAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::LOCAL_UNICAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::LOCAL_MULTICAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::LOCAL_MULTICAST_NO_BROADCAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::UNIVERSAL_ALL,
+        \Symfony\Component\Validator\Constraints\MacAddress::UNIVERSAL_UNICAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::UNIVERSAL_MULTICAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::UNICAST_ALL,
+        \Symfony\Component\Validator\Constraints\MacAddress::MULTICAST_ALL,
+        \Symfony\Component\Validator\Constraints\MacAddress::MULTICAST_NO_BROADCAST,
+        \Symfony\Component\Validator\Constraints\MacAddress::BROADCAST,
+    );
+    expectedArguments(\Symfony\Component\Validator\Constraints\MacAddress::__construct(), 1, argumentsSet('symfony_validator_macaddress_types'));
 }
