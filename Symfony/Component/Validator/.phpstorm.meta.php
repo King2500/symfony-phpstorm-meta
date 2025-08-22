@@ -180,4 +180,42 @@ namespace PHPSTORM_META {
         \Symfony\Component\Validator\Constraints\MacAddress::BROADCAST,
     );
     expectedArguments(\Symfony\Component\Validator\Constraints\MacAddress::__construct(), 1, argumentsSet('symfony_validator_macaddress_types'));
+
+    registerArgumentsSet('symfony_validator_type_types',
+        'bool',
+        'boolean',
+        'int',
+        'integer',
+        'long',
+        'float',
+        'double',
+        'real',
+        'number',
+        'finite-float',
+        'finite-number',
+        'numeric',
+        'string',
+        'scalar',
+        'array',
+        'list',
+        'associative_array',
+        'iterable',
+        'countable',
+        'callable',
+        'object',
+        'resource',
+        'null',
+        'alnum',
+        'alpha',
+        'cntrl',
+        'digit',
+        'graph',
+        'lower',
+        'print',
+        'punct',
+        'space',
+        'upper',
+        'xdigit'
+    );
+    expectedArguments(\Symfony\Component\Validator\Constraints\Type::__construct(), 0, argumentsSet('symfony_validator_type_types'));
 }
