@@ -250,4 +250,12 @@ namespace PHPSTORM_META {
         'xdigit'
     );
     expectedArguments(\Symfony\Component\Validator\Constraints\Type::__construct(), 0, argumentsSet('symfony_validator_type_types'));
+
+    // Symfony 7.2: Ulid constraint "format" option
+    registerArgumentsSet('symfony_validator_ulid_formats',
+        \Symfony\Component\Validator\Constraints\Ulid::FORMAT_BASE_32,
+        \Symfony\Component\Validator\Constraints\Ulid::FORMAT_BASE_58,
+        \Symfony\Component\Validator\Constraints\Ulid::FORMAT_RFC_4122,
+    );
+    expectedArguments(\Symfony\Component\Validator\Constraints\Ulid::__construct(), 4, argumentsSet('symfony_validator_ulid_formats'));
 }
