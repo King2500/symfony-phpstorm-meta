@@ -181,6 +181,38 @@ namespace PHPSTORM_META {
     );
     expectedArguments(\Symfony\Component\Validator\Constraints\MacAddress::__construct(), 1, argumentsSet('symfony_validator_macaddress_types'));
 
+    registerArgumentsSet('symfony_validator_ip_versions',
+        \Symfony\Component\Validator\Constraints\Ip::V4,
+        \Symfony\Component\Validator\Constraints\Ip::V6,
+        \Symfony\Component\Validator\Constraints\Ip::ALL,
+
+        \Symfony\Component\Validator\Constraints\Ip::V4_NO_PUBLIC,
+        \Symfony\Component\Validator\Constraints\Ip::V6_NO_PUBLIC,
+        \Symfony\Component\Validator\Constraints\Ip::ALL_NO_PUBLIC,
+
+        \Symfony\Component\Validator\Constraints\Ip::V4_NO_PRIVATE,
+        \Symfony\Component\Validator\Constraints\Ip::V6_NO_PRIVATE,
+        \Symfony\Component\Validator\Constraints\Ip::ALL_NO_PRIVATE,
+
+        \Symfony\Component\Validator\Constraints\Ip::V4_NO_RESERVED,
+        \Symfony\Component\Validator\Constraints\Ip::V6_NO_RESERVED,
+        \Symfony\Component\Validator\Constraints\Ip::ALL_NO_RESERVED,
+
+        \Symfony\Component\Validator\Constraints\Ip::V4_ONLY_PUBLIC,
+        \Symfony\Component\Validator\Constraints\Ip::V6_ONLY_PUBLIC,
+        \Symfony\Component\Validator\Constraints\Ip::ALL_ONLY_PUBLIC,
+
+        \Symfony\Component\Validator\Constraints\Ip::V4_ONLY_PRIVATE,
+        \Symfony\Component\Validator\Constraints\Ip::V6_ONLY_PRIVATE,
+        \Symfony\Component\Validator\Constraints\Ip::ALL_ONLY_PRIVATE,
+
+        \Symfony\Component\Validator\Constraints\Ip::V4_ONLY_RESERVED,
+        \Symfony\Component\Validator\Constraints\Ip::V6_ONLY_RESERVED,
+        \Symfony\Component\Validator\Constraints\Ip::ALL_ONLY_RESERVED,
+    );
+    expectedArguments(\Symfony\Component\Validator\Constraints\Ip::__construct(), 1, argumentsSet('symfony_validator_ip_versions'));
+    expectedArguments(\Symfony\Component\Validator\Constraints\Cidr::__construct(), 1, argumentsSet('symfony_validator_ip_versions'));
+
     registerArgumentsSet('symfony_validator_type_types',
         'bool',
         'boolean',
