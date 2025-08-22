@@ -6,6 +6,15 @@ namespace PHPSTORM_META {
 
     expectedArguments(\Symfony\Component\String\AbstractString::truncate(), 1, '…', '...');
 
+    // Symfony 7.2+: String::truncate() gained new truncation modes via enum TruncateMode
+    // Suggest the available modes when completing the $cut argument
+    registerArgumentsSet('symfony_string_truncate_modes',
+        \Symfony\Component\String\TruncateMode::Char,
+        \Symfony\Component\String\TruncateMode::WordBefore,
+        \Symfony\Component\String\TruncateMode::WordAfter
+    );
+    expectedArguments(\Symfony\Component\String\AbstractString::truncate(), 2, argumentsSet('symfony_string_truncate_modes'));
+
     registerArgumentsSet('symfony_string_normalize_forms',
         // these should be prefered, but dont work yet:
         \Symfony\Component\String\UnicodeString::NFC,
