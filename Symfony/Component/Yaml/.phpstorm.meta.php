@@ -23,7 +23,11 @@ namespace PHPSTORM_META {
 		\Symfony\Component\Yaml\Yaml::DUMP_OBJECT_AS_MAP |
 		\Symfony\Component\Yaml\Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK |
 		\Symfony\Component\Yaml\Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE |
-		\Symfony\Component\Yaml\Yaml::DUMP_NUMERIC_KEY_AS_STRING
+		\Symfony\Component\Yaml\Yaml::DUMP_NUMERIC_KEY_AS_STRING |
+        \Symfony\Component\Yaml\Yaml::DUMP_NULL_AS_TILDE |
+        \Symfony\Component\Yaml\Yaml::DUMP_NULL_AS_EMPTY |
+        \Symfony\Component\Yaml\Yaml::DUMP_COMPACT_NESTED_MAPPING |
+        \Symfony\Component\Yaml\Yaml::DUMP_FORCE_DOUBLE_QUOTES_ON_VALUES
 	);
 	expectedArguments(\Symfony\Component\Yaml\Yaml::dump(), 3, argumentsSet('symfony_yaml_dump_flags'));
 	expectedArguments(\Symfony\Component\Yaml\Dumper::dump(), 3, argumentsSet('symfony_yaml_dump_flags'));
