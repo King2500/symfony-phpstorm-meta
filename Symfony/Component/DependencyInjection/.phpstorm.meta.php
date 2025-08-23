@@ -39,5 +39,6 @@ namespace PHPSTORM_META {
 		'prod',
 		'test'
 	);
+    expectedArguments(\Symfony\Component\DependencyInjection\Attribute\AsAlias::__construct(), 2, argumentsSet('symfony_environments'));
 	expectedReturnValues(\Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator::env(), argumentsSet('symfony_environments'));
 }
