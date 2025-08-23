@@ -80,6 +80,7 @@ namespace PHPSTORM_META {
 		'file'
 	);
 	expectedArguments(\Symfony\Component\Console\Command\Command::addArgument(), 0, argumentsSet('symfony_console_common_arguments'));
+    expectedArguments(\Symfony\Component\Console\Attribute\Argument::__construct(), 1, argumentsSet('symfony_console_common_arguments'));
 
 	// The following should be handled dynamically by plugin
 //	expectedArguments(\Symfony\Component\Console\Input\Input::getArgument(), 0, argumentsSet('symfony_console_common_arguments'));
@@ -108,6 +109,7 @@ namespace PHPSTORM_META {
 		'all'
 	);
 	expectedArguments(\Symfony\Component\Console\Command\Command::addOption(), 0, argumentsSet('symfony_console_common_options'));
+    expectedArguments(\Symfony\Component\Console\Attribute\Option::__construct(), 1, argumentsSet('symfony_console_common_options'));
 
 	// The following should be handled dynamically by plugin
 //	expectedArguments(\Symfony\Component\Console\Input\Input::getOption(), 0, argumentsSet('symfony_console_common_options'));
@@ -225,4 +227,6 @@ namespace PHPSTORM_META {
     expectedArguments(\Symfony\Component\Console\Event\ConsoleErrorEvent::setExitCode(), 0, argumentsSet('symfony_console_event_exitcodes'));
 	expectedReturnValues(\Symfony\Component\Console\Event\ConsoleErrorEvent::getExitCode(), argumentsSet('symfony_console_event_exitcodes'));
 	expectedReturnValues(\Symfony\Component\Console\Event\ConsoleTerminateEvent::getExitCode(), argumentsSet('symfony_console_event_exitcodes'));
+
+    expectedArguments(\Symfony\Component\Console\Attribute\AsCommand::__construct(), 0, 'app:');
 }
