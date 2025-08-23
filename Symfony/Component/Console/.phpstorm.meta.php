@@ -199,7 +199,8 @@ namespace PHPSTORM_META {
 		'compact',
 		'symfony-style-guide',
 		'box',
-		'box-double'
+		'box-double',
+        'markdown'
 	);
 	expectedArguments(\Symfony\Component\Console\Helper\Table::setStyle(), 0, argumentsSet('symfony_console_table_styles'));
 	expectedArguments(\Symfony\Component\Console\Helper\Table::getStyleDefinition(), 0, argumentsSet('symfony_console_table_styles'));
@@ -229,4 +230,15 @@ namespace PHPSTORM_META {
 	expectedReturnValues(\Symfony\Component\Console\Event\ConsoleTerminateEvent::getExitCode(), argumentsSet('symfony_console_event_exitcodes'));
 
     expectedArguments(\Symfony\Component\Console\Attribute\AsCommand::__construct(), 0, 'app:');
+
+    registerArgumentsSet('symfony_console_treehelper_styles', null);
+    expectedArguments(\Symfony\Component\Console\Helper\TreeHelper::__construct(), 2, argumentsSet('symfony_console_treehelper_styles'));
+    expectedArguments(\Symfony\Component\Console\Helper\TreeHelper::createTree(), 3, argumentsSet('symfony_console_treehelper_styles'));
+    expectedReturnValues(\Symfony\Component\Console\Helper\TreeStyle::default(), argumentsSet('symfony_console_treehelper_styles'));
+    expectedReturnValues(\Symfony\Component\Console\Helper\TreeStyle::box(), argumentsSet('symfony_console_treehelper_styles'));
+    expectedReturnValues(\Symfony\Component\Console\Helper\TreeStyle::boxDouble(), argumentsSet('symfony_console_treehelper_styles'));
+    expectedReturnValues(\Symfony\Component\Console\Helper\TreeStyle::compact(), argumentsSet('symfony_console_treehelper_styles'));
+    expectedReturnValues(\Symfony\Component\Console\Helper\TreeStyle::light(), argumentsSet('symfony_console_treehelper_styles'));
+    expectedReturnValues(\Symfony\Component\Console\Helper\TreeStyle::minimal(), argumentsSet('symfony_console_treehelper_styles'));
+    expectedReturnValues(\Symfony\Component\Console\Helper\TreeStyle::rounded(), argumentsSet('symfony_console_treehelper_styles'));
 }
